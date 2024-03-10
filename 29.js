@@ -12,11 +12,13 @@ async function asyncBatch(tasks, handler, batchSize = 2) {
 
   let resIndex = 0;
 
+  // add
   for (let i = 0; i < tasks.length; i++) {
     taskPool.push(() => handler(tasks[i]));
   }
 
   return new Promise((resolve, reject) => {
+    // doNext
     const doNext = () => {
       if (taskPool.length == 0 && workingNum == 0) {
         resolve(res);
@@ -36,7 +38,8 @@ async function asyncBatch(tasks, handler, batchSize = 2) {
           .catch((e) => reject(e));
       }
     };
-
+    
+    // start
     const start = () => {
       for (let i = 0; i < batchSize; i++) {
         doNext();

@@ -5,14 +5,14 @@ class Scheduler {
 
     add (promiseCreator) {
         this.list.push(promiseCreator);
-        this.doNext();
+        // this.doNext();
     };
 
-    // start() {
-    //     for(let i = 0; i < this.maxNum; i++) {
-    //         this.doNext();
-    //     };
-    // };
+    start() {
+        for(let i = 0; i < this.maxNum; i++) {
+            this.doNext();
+        };
+    };
 
 
     doNext() {
@@ -39,4 +39,4 @@ addTask(500,2);
 addTask(300,3);
 addTask(400,4);
 
-// scheduler.start();
+scheduler.start(); // 初始化max个并发任务
