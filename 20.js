@@ -72,7 +72,4 @@ var isBalanced = function(root) {
     }
     const { height: maxHeight, depth: maxDepth } = calculateHeightAndDepth(root);
     return maxHeight <= maxDepth + 1;
-
-    
-
 };

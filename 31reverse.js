@@ -28,8 +28,13 @@ var reverseKGroup = function(head, k) {
 
     dummy.next = head;
     
-    // -1 -> 1 -> 2 -> 3 -> 4 -> 5
-    // pre  start     end
+    // -1  1 -> 2 -> 3    4 -> 5
+    // pre start   end   next
+    // -1  1 -> 2 -> 3     4 -> 5
+    // pre end       start  next
+    // -1 -> 1 -> 2 -> 3   ->   4 -> 5
+    //               start     next
+    //              pre end
     let pre = dummy, end = dummy;
     while(end.next) {
         for(let i = 0; i < k && end != null; i++) {

@@ -59,6 +59,7 @@
 // ​
 //   的长度为 jjj 的前缀。
 
+// 最长公共子序列
 var longestCommonSubsequence = function(text1, text2) {
     let len1 = text1.length, len2 = text2.length;
     const dp = new Array(len1 + 1).fill(0).map(item => new Array(len2 + 1).fill(0));

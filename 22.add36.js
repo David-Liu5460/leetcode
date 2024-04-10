@@ -1,42 +1,42 @@
-// function add36(a, b) {
-//     // 建立36进制的映射
-//     const charToValue = {};
-//     const valueToChar = {};
-//     for (let i = 0; i < 36; i++) {
-//       const char = i < 10 ? String(i) : String.fromCharCode(i - 10 + 'a'.charCodeAt(0));
-//       charToValue[char] = i;
-//       valueToChar[i] = char;
-//     }
+function add36(a, b) {
+    // 建立36进制的映射
+    const charToValue = {};
+    const valueToChar = {};
+    for (let i = 0; i < 36; i++) {
+      const char = i < 10 ? String(i) : String.fromCharCode(i - 10 + 'a'.charCodeAt(0));
+      charToValue[char] = i;
+      valueToChar[i] = char;
+    }
 
-//     console.log(charToValue, valueToChar, 211)
+    console.log(charToValue, valueToChar, 211)
 
-//     // 逐位相加
-//     let result = '';
-//     let carry = 0; // 进位
-//     let i = a.length - 1;
-//     let j = b.length - 1;
+    // 逐位相加
+    let result = '';
+    let carry = 0; // 进位
+    let i = a.length - 1;
+    let j = b.length - 1;
 
-//     while (i >= 0 || j >= 0 || carry > 0) {
-//       // 获取a和b当前位上的数值，若已经没有位了则为0
-//       const aValue = i >= 0 ? charToValue[a[i]] : 0;
-//       const bValue = j >= 0 ? charToValue[b[j]] : 0;
+    while (i >= 0 || j >= 0 || carry > 0) {
+      // 获取a和b当前位上的数值，若已经没有位了则为0
+      const aValue = i >= 0 ? charToValue[a[i]] : 0;
+      const bValue = j >= 0 ? charToValue[b[j]] : 0;
 
-//       // 逐位相加，加上进位
-//       const sum = aValue + bValue + carry;
+      // 逐位相加，加上进位
+      const sum = aValue + bValue + carry;
 
-//       // 计算新的进位
-//       carry = Math.floor(sum / 36);
+      // 计算新的进位
+      carry = Math.floor(sum / 36);
 
-//       // 计算当前位的结果，并加到最终结果字符串的前面
-//       result = valueToChar[sum % 36] + result;  // unshift
+      // 计算当前位的结果，并加到最终结果字符串的前面
+      result = valueToChar[sum % 36] + result;  // unshift
 
-//       // 移动到下一位
-//       i--;
-//       j--;
-//     }
+      // 移动到下一位
+      i--;
+      j--;
+    }
 
-//     return result;
-//   }
+    return result;
+  }
 
 //   // 测试
 //   console.log(add36('1z', '2x')); // 应输出 51
