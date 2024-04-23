@@ -160,7 +160,7 @@ class Expression extends Watcher {
                 });
 
                 this.passSubject.regist(passWatcher);
-                this.comboPassRegist(passWatcher);
+                // this.comboPassRegist(passWatcher);
             };
 
             if (eventSubjectMap) {
@@ -180,10 +180,10 @@ class Expression extends Watcher {
         }
     };
 
-    comboPassRegist(fn) {
-        this.combo && this.combo.passSubject.regist(fn);
-        this.combo && this.combo.comboPassRegist(fn);
-      }
+    // comboPassRegist(fn) {
+    //     this.combo && this.combo.passSubject.regist(fn);
+    //     this.combo && this.combo.comboPassRegist(fn);
+    //   }
 
     pass(unitVale) {
         // 父节点pass 才允许子节点pass 
